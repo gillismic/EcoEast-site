@@ -1,192 +1,507 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="activist">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eco East | Éco Est</title>
-<meta name="description" content="Eco East is a volunteer-driven non-profit in Prescott-Russell focused on grassroots advocacy, action, and education for sustainability.">
-<style>
-:root{ 
-  --eco:#2fc46f;
-  --bg:#f3fff8;
-  --bg2:#e8fff2;
-  --card:#ffffff;
-  --text:#0d2018;
-  --muted:#355c4d;
-  --border:rgba(0,0,0,.12);
-  --shadow:0 14px 40px rgba(12,40,28,.12);
-  --link:#0a5534;
-  --pill:#eafff1;
-  --radius:18px;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial,sans-serif;
-  background:linear-gradient(180deg, var(--bg), var(--bg2));
-  color:var(--text);
-  line-height:1.5;
-}
-a{color:var(--link)}
-.wrap{max-width:980px;margin:0 auto;padding:26px 18px 60px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:10px 0 14px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;min-width:260px}
-.brand img{width:54px;height:54px;border-radius:14px;border:1px solid var(--border);background:#fff;object-fit:cover;box-shadow:var(--shadow)}
-.brand .name{display:flex;flex-direction:column;gap:2px}
-.brand strong{font-size:16px;letter-spacing:.2px}
-.brand span{font-size:13px;color:var(--muted)}
-.nav{display:flex;gap:14px;flex-wrap:wrap;font-size:14px}
-.nav a{text-decoration:none;color:var(--muted);padding:6px 8px;border-radius:10px}
-.nav a:hover{color:var(--text);background:rgba(47,196,111,.12)}
-.hero{border:1px solid var(--border);background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.98));border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:-40px -60px auto auto;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(47,196,111,.38), transparent 60%);pointer-events:none;filter:blur(2px)}
-.hero h1{margin:0 0 10px;font-size:36px;line-height:1.08;max-width:22ch}
-.hero p{margin:0 0 16px;color:var(--muted);max-width:64ch;font-size:16px}
-.ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:14px;border:1px solid var(--border);text-decoration:none;font-weight:700;background:rgba(255,255,255,.75);color:var(--text)}
-.btn:hover{background:#fff}
-.btn.primary{background:rgba(47,196,111,.18);border-color:rgba(47,196,111,.60)}
-.btn.primary:hover{background:rgba(47,196,111,.26)}
-.btn.outlineGreen{border-color:rgba(47,196,111,.55);background:rgba(255,255,255,.75)}
-.btn.outlineGreen:hover{background:rgba(47,196,111,.10)}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:16px}
-.card{grid-column:span 12;border:1px solid var(--border);border-radius:var(--radius);padding:18px;background:rgba(255,255,255,.96);box-shadow:0 6px 18px rgba(0,0,0,.05)}
-.card h2{margin:0 0 10px;font-size:20px}
-.muted{color:var(--muted);margin:0}
-.two{grid-column:span 12}
-@media(min-width:820px){.two{grid-column:span 6}}
-.pillRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-.pill{border:1px solid var(--border);background:var(--pill);padding:8px 10px;border-radius:999px;font-size:14px;color:var(--muted)}
-.stats{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:12px}
-.stat{grid-column:span 6;border:1px solid var(--border);background:rgba(47,196,111,.08);border-radius:16px;padding:14px}
-@media(min-width:820px){.stat{grid-column:span 3}}
-.stat strong{display:block;font-size:22px}
-.stat span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
-.actions{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:12px}
-.action{grid-column:span 12;border:1px solid var(--border);border-radius:16px;padding:16px;background:#fff;position:relative;overflow:hidden}
-@media(min-width:820px){.action{grid-column:span 4}}
-.action::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--eco);opacity:.9}
-.action h3{margin:0 0 6px;font-size:18px}
-.action p{margin:0 0 12px;color:var(--muted);font-size:14px}
-.footer{margin-top:18px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;font-size:14px;padding-top:14px;border-top:1px solid var(--border)}
-.footer a{text-decoration:none}
-.footer a:hover{text-decoration:underline}
-.anchor{scroll-margin-top:20px}
-.tiny{font-size:12px;color:var(--muted);margin-top:8px}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eco East | Éco Est</title>
+  <meta name="description" content="Eco East is a volunteer-driven non-profit in Prescott-Russell focused on grassroots advocacy, action, and education for sustainability." />
+
+  <style>
+    :root{
+      --eco:#2fc46f;
+
+      /* Bold + activist */
+      --bg:#f3fff8;
+      --bg2:#e8fff2;
+      --card:#ffffff;
+      --text:#0d2018;
+      --muted:#355c4d;
+      --border:rgba(0,0,0,.12);
+      --shadow:0 14px 40px rgba(12,40,28,.12);
+      --link:#0a5534;
+      --pill:#eafff1;
+
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:var(--link)}
+    .wrap{max-width:980px;margin:0 auto;padding:26px 18px 60px}
+
+    /* TOP BAR */
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      flex-wrap:wrap;
+      padding:10px 0 14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      text-decoration:none;color:inherit;
+      min-width:260px;
+    }
+    .brand img{
+      width:54px;height:54px;border-radius:14px;
+      border:1px solid var(--border);
+      background:#fff;
+      object-fit:cover;
+      box-shadow:var(--shadow);
+    }
+    .brand .name{display:flex;flex-direction:column;gap:2px}
+    .brand strong{font-size:16px;letter-spacing:.2px}
+    .brand span{font-size:13px;color:var(--muted)}
+
+    .nav{
+      display:flex;gap:14px;flex-wrap:wrap;
+      font-size:14px;
+    }
+    .nav a{
+      text-decoration:none;color:var(--muted);
+      padding:6px 8px;border-radius:10px;
+    }
+    .nav a:hover{
+      color:var(--text);
+      background:rgba(47,196,111,.12);
+    }
+
+    /* Language toggle */
+    .langToggle{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .langBtn{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.7);
+      padding:6px 10px;border-radius:999px;
+      font-size:13px;color:var(--muted);
+      cursor:pointer;
+      user-select:none;
+    }
+    .langBtn.active{
+      color:var(--text);
+      border-color:rgba(47,196,111,.55);
+      background:rgba(47,196,111,.14);
+      font-weight:700;
+    }
+
+    /* HERO */
+    .hero{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.98));
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;inset:-40px -60px auto auto;
+      width:260px;height:260px;border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, rgba(47,196,111,.38), transparent 60%);
+      pointer-events:none;
+      filter:blur(2px);
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size:36px;line-height:1.08;
+      max-width:26ch;
+    }
+    .hero p{
+      margin:0 0 16px;
+      color:var(--muted);
+      max-width:72ch;
+      font-size:16px;
+    }
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:14px;
+      border:1px solid var(--border);
+      text-decoration:none;
+      font-weight:700;
+      background:rgba(255,255,255,.75);
+      color:var(--text);
+    }
+    .btn:hover{background:#fff}
+    .btn.primary{
+      background:rgba(47,196,111,.18);
+      border-color:rgba(47,196,111,.60);
+    }
+    .btn.primary:hover{background:rgba(47,196,111,.26)}
+    .btn.outlineGreen{
+      border-color:rgba(47,196,111,.55);
+      background:rgba(255,255,255,.75);
+    }
+    .btn.outlineGreen:hover{background:rgba(47,196,111,.10)}
+
+    /* SECTIONS */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .card{
+      grid-column:span 12;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+      background:rgba(255,255,255,.96);
+      box-shadow:0 6px 18px rgba(0,0,0,.05);
+    }
+    .card h2{margin:0 0 10px;font-size:20px}
+    .muted{color:var(--muted);margin:0}
+
+    .two{grid-column:span 12}
+    @media(min-width:820px){
+      .two{grid-column:span 6}
+    }
+
+    .pillRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .pill{
+      border:1px solid var(--border);
+      background:var(--pill);
+      padding:8px 10px;border-radius:999px;
+      font-size:14px;color:var(--muted);
+    }
+
+    /* Impact stats */
+    .stats{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:12px}
+    .stat{
+      grid-column:span 6;
+      border:1px solid var(--border);
+      background:rgba(47,196,111,.08);
+      border-radius:16px;
+      padding:14px;
+    }
+    @media(min-width:820px){ .stat{grid-column:span 3} }
+    .stat strong{display:block;font-size:22px}
+    .stat span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+
+    /* Get involved cards */
+    .actions{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:12px}
+    .action{
+      grid-column:span 12;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px;
+      background:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+    @media(min-width:820px){ .action{grid-column:span 4} }
+    .action::before{
+      content:"";
+      position:absolute;inset:0 auto 0 0;
+      width:6px;
+      background:var(--eco);
+      opacity:.9;
+    }
+    .action h3{margin:0 0 6px;font-size:18px}
+    .action p{margin:0 0 12px;color:var(--muted);font-size:14px}
+
+    .footer{
+      margin-top:18px;
+      color:var(--muted);
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+      font-size:14px;
+      padding-top:14px;
+      border-top:1px solid var(--border);
+    }
+    .footer a{text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+
+    .anchor{scroll-margin-top:20px}
+    .tiny{font-size:12px;color:var(--muted);margin-top:8px}
+  </style>
 </head>
+
 <body>
 <div class="wrap">
-<header class="topbar">
-  <a class="brand" href="#top">
-    <img src="logo.jpg" alt="Eco East logo"/>
-    <div class="name">
-      <strong>Eco East | Éco Est</strong>
-      <span>Grassroots advocacy, action & education in Prescott-Russell</span>
-    </div>
-  </a>
-  <nav class="nav">
-    <a href="#about">About</a>
-    <a href="#themes">Themes</a>
-    <a href="#impact">Impact</a>
-    <a href="#get-involved">Get involved</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
 
-<main id="top">
-<section class="hero">
-<h1>Local action. Real results.</h1>
-<p>Eco East is a volunteer-driven non-profit bringing people together to protect nature and build a more sustainable Prescott-Russell.</p>
-<div class="ctaRow">
-  <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSciFzRfgv6HwWqVSvWFDsTi6ZfCsSjUpJWlnQGwVrx04TfSnA/viewform" target="_blank">Volunteer</a>
-  <a class="btn outlineGreen" href="#">Donate</a>
-  <a class="btn" href="#get-involved">Ways to help</a>
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <img src="logo.jpg" alt="Eco East logo" />
+      <div class="name">
+        <strong>Eco East | Éco Est</strong>
+        <span data-i18n="tagline">Grassroots advocacy, action & education in Prescott-Russell</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Site navigation">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#themes" data-i18n="nav_themes">Themes</a>
+      <a href="#impact" data-i18n="nav_impact">Impact</a>
+      <a href="#get-involved" data-i18n="nav_get_involved">Get involved</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+
+    <div class="langToggle" aria-label="Language toggle">
+      <button class="langBtn active" type="button" data-lang="en">EN</button>
+      <button class="langBtn" type="button" data-lang="fr">FR</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1 data-i18n="hero_title">Local action. Real results.</h1>
+      <p data-i18n="hero_copy">
+        Eco East is a volunteer-driven non-profit bringing people together to protect nature and build a more sustainable Prescott-Russell.
+      </p>
+      <div class="ctaRow">
+        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSciFzRfgv6HwWqVSvWFDsTi6ZfCsSjUpJWlnQGwVrx04TfSnA/viewform" target="_blank" rel="noopener noreferrer" data-i18n="cta_volunteer">Volunteer</a>
+        <a class="btn outlineGreen" href="#" target="_blank" rel="noopener noreferrer" data-i18n="cta_donate">Donate</a>
+        <a class="btn" href="#get-involved" data-i18n="cta_ways">Ways to help</a>
+      </div>
+      <div class="tiny" data-i18n="cta_tip">Tip: Volunteer/Donate can link to Google Forms, Zeffy, CanadaHelps, PayPal, etc.</div>
+    </section>
+
+    <section id="about" class="grid anchor">
+      <div class="card two">
+        <h2 data-i18n="mission_title">Our mission</h2>
+        <p class="muted" data-i18n="mission_copy">
+          Lead the community toward a sustainable future for all through volunteer action, community partnerships, and education by inspiring a love and respect of nature.
+        </p>
+      </div>
+      <div class="card two">
+        <h2 data-i18n="how_title">How we work</h2>
+        <p class="muted" data-i18n="how_copy">
+          Project-based teams, monthly volunteer meet-ups, and partnerships across the region. Pick a project, plug in, make change.
+        </p>
+      </div>
+    </section>
+
+    <section id="themes" class="grid anchor">
+      <div class="card">
+        <h2 data-i18n="themes_title">Our interconnected themes</h2>
+        <div class="pillRow">
+          <div class="pill" data-i18n="theme_climate">Climate & energy</div>
+          <div class="pill" data-i18n="theme_pollution">Industrial pollution</div>
+          <div class="pill" data-i18n="theme_habitat">Habitat regeneration & conservation</div>
+          <div class="pill" data-i18n="theme_waste">Waste reduction</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="grid anchor">
+      <div class="card">
+        <h2 data-i18n="impact_title">2023–2024 highlights</h2>
+        <div class="stats">
+          <div class="stat"><strong>900</strong><span data-i18n="impact_stat1">native trees planted</span></div>
+          <div class="stat"><strong>2,000</strong><span data-i18n="impact_stat2">native plants shared</span></div>
+          <div class="stat"><strong>4</strong><span data-i18n="impact_stat3">public events hosted/attended</span></div>
+          <div class="stat"><strong>2</strong><span data-i18n="impact_stat4">advocacy letters/resolutions</span></div>
+        </div>
+        <p class="muted" style="margin-top:12px;" data-i18n="impact_copy">
+          Tree planting, pollinator gardens, education, and local climate advocacy, powered by volunteers and community partners.
+        </p>
+      </div>
+    </section>
+
+    <section id="get-involved" class="grid anchor">
+      <div class="card">
+        <h2 data-i18n="involved_title">Get involved</h2>
+        <p class="muted" data-i18n="involved_copy">Choose a way to help. We’ll match you with the right project and pace.</p>
+
+        <div class="actions">
+          <div class="action">
+            <h3 data-i18n="vol_title">Volunteer</h3>
+            <p data-i18n="vol_copy">Join a project team or help with events, outreach, comms, and admin.</p>
+            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSciFzRfgv6HwWqVSvWFDsTi6ZfCsSjUpJWlnQGwVrx04TfSnA/viewform" target="_blank" rel="noopener noreferrer" data-i18n="vol_btn">Volunteer sign-up</a>
+          </div>
+
+          <div class="action">
+            <h3 data-i18n="don_title">Donate</h3>
+            <p data-i18n="don_copy">Support native trees/plants, education, and advocacy work across the region.</p>
+            <a class="btn outlineGreen" href="#" target="_blank" rel="noopener noreferrer" data-i18n="don_btn">Donate</a>
+          </div>
+
+          <div class="action">
+            <h3 data-i18n="par_title">Partner</h3>
+            <p data-i18n="par_copy">Schools, municipalities, businesses, and groups: let’s collaborate.</p>
+            <a class="btn" href="mailto:ecoeastont@gmail.com?subject=Interested%20in%20partnering%20with%20Eco%20East" data-i18n="par_btn">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="grid anchor">
+      <div class="card two">
+        <h2 data-i18n="contact_title">Contact</h2>
+        <p class="muted">
+          <span data-i18n="contact_email_label">Email:</span> <a href="mailto:ecoeastont@gmail.com">ecoeastont@gmail.com</a><br/>
+          <span data-i18n="contact_web_label">Website:</span> <a href="https://www.ecoeastont.ca/" target="_blank" rel="noopener noreferrer">ecoeastont.ca</a>
+        </p>
+      </div>
+
+      <div class="card two">
+        <h2 data-i18n="social_title">Follow & share</h2>
+        <p class="muted" data-i18n="social_copy">Updates, events, calls for volunteers, and wins.</p>
+        <div class="ctaRow" style="margin-top:10px;">
+          <a class="btn outlineGreen" href="https://www.instagram.com/eco.east.est/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="btn outlineGreen" href="#" target="_blank" rel="noopener noreferrer" data-i18n="facebook_btn">Facebook</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> Eco East | Éco Est</div>
+      <div>
+        <a href="#top" data-i18n="back_to_top">Back to top</a>
+      </div>
+    </footer>
+  </main>
+
 </div>
-<div class="tiny">Tip: Volunteer/Donate can link to Google Forms, Zeffy, CanadaHelps, PayPal, etc.</div>
-</section>
 
-<section id="about" class="grid anchor">
-  <div class="card two">
-    <h2>Our mission</h2>
-    <p class="muted">Lead the community toward a sustainable future for all through volunteer action, community partnerships, and education by inspiring a love and respect of nature.</p>
-  </div>
-  <div class="card two">
-    <h2>How we work</h2>
-    <p class="muted">Project-based teams, monthly volunteer meet-ups, and partnerships across the region. Pick a project, plug in, make change.</p>
-  </div>
-</section>
+<script>
+  // year
+  document.getElementById("y").textContent = new Date().getFullYear();
 
-<section id="themes" class="grid anchor">
-  <div class="card">
-    <h2>Our interconnected themes</h2>
-    <div class="pillRow">
-      <div class="pill">Climate & energy</div>
-      <div class="pill">Industrial pollution</div>
-      <div class="pill">Habitat regeneration & conservation</div>
-      <div class="pill">Waste reduction</div>
-    </div>
-  </div>
-</section>
+  // bilingual content
+  const i18n = {
+    en: {
+      tagline: "Grassroots advocacy, action & education in Prescott-Russell",
+      nav_about: "About",
+      nav_themes: "Themes",
+      nav_impact: "Impact",
+      nav_get_involved: "Get involved",
+      nav_contact: "Contact",
 
-<section id="impact" class="grid anchor">
-  <div class="card">
-    <h2>2024–2025 highlights</h2>
-    <div class="stats">
-      <div class="stat"><strong>900</strong><span>native trees planted</span></div>
-      <div class="stat"><strong>2,000</strong><span>native plants shared</span></div>
-      <div class="stat"><strong>4</strong><span>public events hosted/attended</span></div>
-      <div class="stat"><strong>2</strong><span>advocacy letters/resolutions</span></div>
-    </div>
-    <p class="muted" style="margin-top:12px;">Tree planting, pollinator gardens, education, and local climate advocacy, powered by volunteers and community partners.</p>
-  </div>
-</section>
+      hero_title: "Local action. Real results.",
+      hero_copy: "Eco East is a volunteer-driven non-profit bringing people together to protect nature and build a more sustainable Prescott-Russell.",
+      cta_volunteer: "Volunteer",
+      cta_donate: "Donate",
+      cta_ways: "Ways to help",
+      cta_tip: "Tip: Volunteer/Donate can link to Google Forms, Zeffy, CanadaHelps, PayPal, etc.",
 
-<section id="get-involved" class="grid anchor">
-  <div class="card">
-    <h2>Get involved</h2>
-    <p class="muted">Choose a way to help. We’ll match you with the right project and pace.</p>
-    <div class="actions">
-      <div class="action">
-        <h3>Volunteer</h3>
-        <p>Join a project team or help with events, outreach, comms, and admin.</p>
-        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSciFzRfgv6HwWqVSvWFDsTi6ZfCsSjUpJWlnQGwVrx04TfSnA/viewform" target="_blank">Volunteer sign-up</a>
-      </div>
-      <div class="action">
-        <h3>Donate</h3>
-        <p>Support native trees/plants, education, and advocacy work across the region.</p>
-        <a class="btn outlineGreen" href="#">Donate</a>
-      </div>
-      <div class="action">
-        <h3>Partner</h3>
-        <p>Schools, municipalities, businesses, and groups: let’s collaborate.</p>
-        <a class="btn" href="mailto:ecoeastont@gmail.com?subject=Interested%20in%20partnering%20with%20Eco%20East">Contact us</a>
-      </div>
-    </div>
-  </div>
-</section>
+      mission_title: "Our mission",
+      mission_copy: "Lead the community toward a sustainable future for all through volunteer action, community partnerships, and education by inspiring a love and respect of nature.",
+      how_title: "How we work",
+      how_copy: "Project-based teams, monthly volunteer meet-ups, and partnerships across the region. Pick a project, plug in, make change.",
 
-<section id="contact" class="grid anchor">
-  <div class="card two">
-    <h2>Contact</h2>
-    <p class="muted">Email: <a href="mailto:ecoeastont@gmail.com">ecoeastont@gmail.com</a><br/>Website: <a href="https://www.ecoeastont.ca/" target="_blank">ecoeastont.ca</a></p>
-  </div>
-  <div class="card two">
-    <h2>Follow & share</h2>
-    <p class="muted">Updates, events, calls for volunteers, and wins.</p>
-    <div class="ctaRow" style="margin-top:10px;">
-      <a class="btn outlineGreen" href="https://www.instagram.com/eco.east.est/" target="_blank">Instagram</a>
-      <a class="btn outlineGreen" href="https://www.facebook.com/ecoeastecoest" target="_blank">Facebook</a>
-    </div>
-  </div>
-</section>
+      themes_title: "Our interconnected themes",
+      theme_climate: "Climate & energy",
+      theme_pollution: "Industrial pollution",
+      theme_habitat: "Habitat regeneration & conservation",
+      theme_waste: "Waste reduction",
 
-<footer class="footer">
-  <div>© <span id="y"></span> Eco East | Éco Est</div>
-  <div><a href="#top">Back to top</a></div>
-</footer>
-</main>
-</div>
-<script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+      impact_title: "2023–2024 highlights",
+      impact_stat1: "native trees planted",
+      impact_stat2: "native plants shared",
+      impact_stat3: "public events hosted/attended",
+      impact_stat4: "advocacy letters/resolutions",
+      impact_copy: "Tree planting, pollinator gardens, education, and local climate advocacy, powered by volunteers and community partners.",
+
+      involved_title: "Get involved",
+      involved_copy: "Choose a way to help. We’ll match you with the right project and pace.",
+      vol_title: "Volunteer",
+      vol_copy: "Join a project team or help with events, outreach, comms, and admin.",
+      vol_btn: "Volunteer sign-up",
+      don_title: "Donate",
+      don_copy: "Support native trees/plants, education, and advocacy work across the region.",
+      don_btn: "Donate",
+      par_title: "Partner",
+      par_copy: "Schools, municipalities, businesses, and groups: let’s collaborate.",
+      par_btn: "Contact us",
+
+      contact_title: "Contact",
+      contact_email_label: "Email:",
+      contact_web_label: "Website:",
+      social_title: "Follow & share",
+      social_copy: "Updates, events, calls for volunteers, and wins.",
+      facebook_btn: "Facebook",
+      back_to_top: "Back to top"
+    },
+
+    fr: {
+      tagline: "Plaidoyer, action et éducation pour la durabilité à Prescott-Russell",
+      nav_about: "À propos",
+      nav_themes: "Thèmes",
+      nav_impact: "Impact",
+      nav_get_involved: "S’impliquer",
+      nav_contact: "Contact",
+
+      hero_title: "Action locale. Résultats concrets.",
+      hero_copy: "Éco Est est un organisme à but non lucratif, porté par des bénévoles, qui rassemble la communauté pour protéger la nature et bâtir un Prescott-Russell plus durable.",
+      cta_volunteer: "Bénévolat",
+      cta_donate: "Donner",
+      cta_ways: "Façons d’aider",
+      cta_tip: "Astuce : « Bénévolat » et « Donner » peuvent mener vers Google Forms, Zeffy, CanadaHelps, PayPal, etc.",
+
+      mission_title: "Notre mission",
+      mission_copy: "Guider la communauté vers un avenir durable pour toutes et tous grâce à l’action bénévole, aux partenariats communautaires et à l’éducation, en inspirant l’amour et le respect de la nature.",
+      how_title: "Notre façon d’agir",
+      how_copy: "Des équipes par projets, des rencontres mensuelles de bénévoles et des partenariats dans toute la région. Choisissez un projet, embarquez, et faisons bouger les choses.",
+
+      themes_title: "Nos thèmes interconnectés",
+      theme_climate: "Climat et énergie",
+      theme_pollution: "Pollution industrielle",
+      theme_habitat: "Régénération et conservation des habitats",
+      theme_waste: "Réduction des déchets",
+
+      impact_title: "Faits saillants 2023–2024",
+      impact_stat1: "arbres indigènes plantés",
+      impact_stat2: "plantes indigènes partagées",
+      impact_stat3: "événements publics organisés/auxquels nous avons participé",
+      impact_stat4: "lettres/résolutions de plaidoyer",
+      impact_copy: "Plantations d’arbres, jardins pour pollinisateurs, activités éducatives et plaidoyer climatique local, rendus possibles par les bénévoles et nos partenaires.",
+
+      involved_title: "S’impliquer",
+      involved_copy: "Que vous ayez du temps, des compétences, ou l’envie de soutenir financièrement, il y a une place pour vous. On vous aide à trouver le bon projet et le bon rythme.",
+      vol_title: "Bénévolat",
+      vol_copy: "Joignez une équipe projet ou aidez avec les événements, la sensibilisation, les communications et l’administration.",
+      vol_btn: "S’inscrire comme bénévole",
+      don_title: "Donner",
+      don_copy: "Votre soutien finance les arbres et plantes indigènes, les activités éducatives et le plaidoyer communautaire.",
+      don_btn: "Faire un don",
+      par_title: "Partenariat",
+      par_copy: "Écoles, municipalités, entreprises et groupes : collaborons sur un projet ou un événement.",
+      par_btn: "Nous contacter",
+
+      contact_title: "Contact",
+      contact_email_label: "Courriel :",
+      contact_web_label: "Site :",
+      social_title: "Suivre et partager",
+      social_copy: "Nouvelles, événements, appels aux bénévoles et victoires.",
+      facebook_btn: "Facebook",
+      back_to_top: "Retour en haut"
+    }
+  };
+
+  function setLanguage(lang){
+    // update html lang attribute
+    document.documentElement.lang = (lang === "fr") ? "fr" : "en";
+
+    // update text nodes
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if(i18n[lang] && i18n[lang][key] !== undefined){
+        el.textContent = i18n[lang][key];
+      }
+    });
+
+    // active button styling
+    document.querySelectorAll(".langBtn").forEach(b => {
+      b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+    });
+
+    localStorage.setItem("ecoEastLang", lang);
+  }
+
+  // attach handlers
+  document.querySelectorAll(".langBtn").forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
+  });
+
+  // load saved preference
+  const saved = localStorage.getItem("ecoEastLang");
+  setLanguage(saved === "fr" ? "fr" : "en");
+</script>
 </body>
 </html>
